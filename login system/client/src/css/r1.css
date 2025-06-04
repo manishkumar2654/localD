@@ -1,0 +1,11 @@
+#head{
+    width: 100%;
+    padding: 20px;
+    background-color: aqua;
+    color: blue;
+}
+
+#dashboard{
+    width: 100%;
+    background-color: blueviolet;
+}
