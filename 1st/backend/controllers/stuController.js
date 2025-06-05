@@ -1,7 +1,7 @@
 const stuModel = require("../models/stuModel");
 
 const stuSave = async (req, res) => {
-  const { rollno, name, city, fees } = req.body;
+  const { rollno, name, city, fees, imagename } = req.body;
   console.log(req.body);
 
   const student = await stuModel.create({
@@ -9,6 +9,7 @@ const stuSave = async (req, res) => {
     name,
     city,
     fees,
+    imagename
   });
 
   res.send({ msg: "data save!" });
@@ -48,7 +49,7 @@ const getSearchData = async (req, res) => {
 };
 
 const editDataSave = async (req, res) => {
-  const { rollno, name, city, fees,_id } = req.body;
+  const { rollno, name, city, fees,_id, imagename } = req.body;
   console.log(req.body);
   console.log(_id);
 
@@ -56,7 +57,8 @@ const editDataSave = async (req, res) => {
     rollno,
     name,
     city,
-    fees
+    fees,
+    imagename
   });
 
   res.send({ msg: "edit save!" });

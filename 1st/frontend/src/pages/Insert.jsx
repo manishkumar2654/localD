@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import BackEndUrl from '../config/BackEndUrl';
-import axios from "axios";
+import axios, { Axios } from "axios";
 
 const Insert = () => {
     const [input, setInput] = useState({
@@ -38,7 +38,10 @@ const Insert = () => {
         formData.append('cloud_name', 'dqbdlrryo' );
 
         const response = await axios.post("https://api.cloudinary.com/v1_1/dqbdlrryo/image/upload", formData)
-        console.log(response);
+        console.log(response.data.url)
+        let api = `${BackEndUrl}students/save`;
+        const responsel = await axios.post(api, {...input, imagename:response.data.url})
+        console.log(response.data.url);
         
     }
    
